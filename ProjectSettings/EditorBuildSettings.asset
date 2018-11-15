@@ -5,25 +5,25 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/GameScreen.unity
     guid: 99c9720ab356a0642a771bea13969a05
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/GameScreen2.unity
     guid: 10bbc160a3ebc744db121af9b9afd140
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/MainMenu.unity
     guid: ab55dcf52e85e0e4d8dc10a72a1270f2
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/TestScreen.unity
     guid: a84ad8944b8d1114fb64aa77dfdc0ba0
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/SetupMenu.unity
     guid: ac4474d2f3f7cdf47bbbc676986dc0ed
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/GetClosestTarget.unity
     guid: a9e7c5638d0a1384ba0dd47680b26327
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Catapulter.unity
     guid: 3d20ca0399e31df469a53349632db1f4
   - enabled: 1

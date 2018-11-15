@@ -47,8 +47,10 @@ public class Character : MonoBehaviour
     public int currentHealth = maxHealth;
     //[SerializeField]
     //public int dealDamage;
+    public float rockTimer = 0.0f;
+    public float waitingForRockTimer = 3;
 
-        
+
     private GameObject MagicUserBullet;
     private VolumetricLineSettings ScriptTest;
 
@@ -116,7 +118,7 @@ public class Character : MonoBehaviour
 
         if (RockThrower == true)
         {
-
+           GetComponent<CannonBall>().fireCannonBall(nearestEntity.transform);
         }
 
         if (MagicUser == true)

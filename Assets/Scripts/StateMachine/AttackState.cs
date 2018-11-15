@@ -41,7 +41,15 @@ public class AttackState : State {
             }
             if (character.RockThrower == true)
             {
-
+                character.rockTimer += Time.deltaTime;
+                if (character.rockTimer > character.waitingForRockTimer)
+                {
+                    character.RotateToward(character.nearestEntity.transform.position);
+                    character.setAnimation("attack2");
+                    character.onFire();
+                    character.rockTimer = 0;
+                }
+                //character.setAnimation("idle");
             }
             if (character.MagicUser == true)
             {
@@ -91,6 +99,10 @@ public class AttackState : State {
         }
         if (character.RockThrower == true)
         {
+            character.RotateToward(character.nearestEntity.transform.position);
+            character.setAnimation("attack2");
+            character.onFire();
+
 
         }
         if (character.MagicUser == true)
@@ -112,4 +124,13 @@ public class AttackState : State {
     {
     }
 
+    IEnumerator RockAnimationWait(float waitTime)
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(waitTime);
+            character.setAnimation("idle");
+        }
+        
+    }
 }

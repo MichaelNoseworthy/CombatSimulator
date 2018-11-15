@@ -44,7 +44,7 @@ public class IdleState : State {
         }
         if (character.RockThrower == true)
         {
-
+            character.setAnimation("idle");
         }
         if (character.MagicUser == true)
         {

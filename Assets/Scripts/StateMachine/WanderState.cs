@@ -26,7 +26,7 @@ public class WanderState : State
         }
         if (character.RockThrower == true)
         {
-
+            character.setAnimation("walk");
         }
         if (character.MagicUser == true)
         {
