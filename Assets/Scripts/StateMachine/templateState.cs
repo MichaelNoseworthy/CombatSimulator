@@ -11,7 +11,6 @@ public class TemplateState : State {
 
     public override void Tick()
     {
-        
     }
 
     public override void OnStateEnter()

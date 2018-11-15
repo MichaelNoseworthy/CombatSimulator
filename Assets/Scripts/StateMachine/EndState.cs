@@ -12,7 +12,6 @@ public class EndState : State
 
     public override void Tick()
     {
-
     }
 
     public override void OnStateEnter()

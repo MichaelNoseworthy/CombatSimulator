@@ -42,6 +42,8 @@ public class Character : MonoBehaviour
     int damageToDeal;
     private Character EnemyScript;//Gives current player the ability to control his enemy, like take damage
 
+    
+
     public RectTransform healthBar;
     public const int maxHealth = 100;
     [SerializeField]
@@ -147,8 +149,9 @@ public class Character : MonoBehaviour
 
     private void Update()
     {
-
-
+        
+        bool pausegame = GameObject.FindWithTag("GameController").GetComponent<GameManager>().PauseGame;
+        if (pausegame)
         currentState.Tick();
         
         colliders = Physics.OverlapSphere(transform.position, checkRadius, checkLayers);
