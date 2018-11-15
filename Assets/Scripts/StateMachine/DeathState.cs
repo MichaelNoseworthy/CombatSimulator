@@ -16,14 +16,31 @@ public class DeathState : State {
     public override void OnStateEnter()
     {
         character.isDead = true;
-        
-        character.setAnimation("2handedDeath");
+
+        //character.setAnimation("2handedDeath");
         //character.destroyAI();
 
         //Does not work properly:
         //changeLayer();
-        
-       //destroyCharacter();
+
+        //destroyCharacter();
+        character.onDeath();
+        if (character.Melee == true)
+        {
+            
+        }
+        if (character.Ranged == true)
+        {
+            
+        }
+        if (character.RockThrower == true)
+        {
+            
+        }
+        if (character.MagicUser == true)
+        {
+            
+        }
     }
 
     IEnumerator changeLayer()

@@ -60,7 +60,7 @@ public class AttackState : State {
                 }
             }
 
-            if (character.currentHealth == 0)
+            if (character.currentHealth <= 0)
             {
                 character.SetState(new DeathState(character));
                 //character.setAnimation("2handedDeath");

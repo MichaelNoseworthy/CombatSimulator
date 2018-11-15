@@ -1844,6 +1844,8 @@ MonoBehaviour:
   damageToDeal: 0
   healthBar: {fileID: 224892706469587976}
   currentHealth: 100
+  rockTimer: 0
+  waitingForRockTimer: 3
   isDead: 0
   isNearestEntityDead: 0
   moveSpeed: 3
@@ -1852,7 +1854,7 @@ MonoBehaviour:
   checkRadius: 20
   checkLayers:
     serializedVersion: 2
-    m_Bits: 1024
+    m_Bits: 512
 --- !u!114 &114461908222430910
 MonoBehaviour:
   m_ObjectHideFlags: 1

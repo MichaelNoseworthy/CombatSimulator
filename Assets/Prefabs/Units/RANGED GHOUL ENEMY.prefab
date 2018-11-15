@@ -1395,7 +1395,7 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1839473439816618}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
   m_LocalPosition: {x: 0.9443633, y: 0.05999997, z: 4.5529346}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -1407,7 +1407,7 @@ Transform:
   - {fileID: 224196509058542244}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!4 &4623288113999552
 Transform:
   m_ObjectHideFlags: 1
@@ -1903,6 +1903,8 @@ MonoBehaviour:
   damageToDeal: 0
   healthBar: {fileID: 224743970221013814}
   currentHealth: 100
+  rockTimer: 0
+  waitingForRockTimer: 3
   isDead: 0
   isNearestEntityDead: 0
   moveSpeed: 3

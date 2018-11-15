@@ -46,9 +46,20 @@ public class WanderState : State
 
     public override void Tick()
     {
+        if (character.currentHealth <= 0)
+        {
+            character.currentHealth = 0;
+            Debug.Log("Dead!");
+            character.SetState(new DeathState(character));
+        }
         if (ReachedDestination())
         {
             character.SetState(new AttackState(character));
+        }
+
+        if (character.nearestEntity == null || character.isNearestEntityDead == true)
+        {
+            character.SetState(new IdleState(character));
         }
 
         character.isNearestEntityDead = character.nearestEntity.GetComponent<Character>().amIDead();
@@ -58,12 +69,7 @@ public class WanderState : State
         else
             character.SetState(new IdleState(character));
 
-        if (character.currentHealth <= 0)
-        {
-            character.currentHealth = 0;
-            Debug.Log("Dead!");
-            character.SetState(new DeathState(character));
-        }
+        
         //timer += Time.deltaTime;
         /*
         if (character.nearestEntity != null)

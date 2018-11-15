@@ -1119,7 +1119,7 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1705962562052852}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
   m_LocalPosition: {x: 1.67, y: 0.009999752, z: 1.31}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -1130,7 +1130,7 @@ Transform:
   - {fileID: 4413814435995452}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!4 &4054136891272410
 Transform:
   m_ObjectHideFlags: 1
@@ -2309,6 +2309,8 @@ MonoBehaviour:
   bulletSpawnPoint: {fileID: 1625154828567188}
   MeleeBulletPrefab: {fileID: 1764004772942984, guid: be2db3ccc62818c46884509963cb5e0c,
     type: 2}
+  DeathAnimation: {fileID: 1737421546322632, guid: 2c51a335c0e395844b9f4cde1e81f2b6,
+    type: 2}
   entityCollider: {fileID: 0}
   Melee: 1
   Ranged: 0
@@ -2318,12 +2320,14 @@ MonoBehaviour:
   damageToDeal: 10
   healthBar: {fileID: 224902478510477832}
   currentHealth: 100
+  rockTimer: 0
+  waitingForRockTimer: 3
   isDead: 0
   isNearestEntityDead: 0
   moveSpeed: 3
   rotateSpeed: 3
   nearestEntity: {fileID: 0}
-  checkRadius: 5
+  checkRadius: 15
   checkLayers:
     serializedVersion: 2
     m_Bits: 1024

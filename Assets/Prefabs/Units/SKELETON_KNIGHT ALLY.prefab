@@ -2335,6 +2335,8 @@ MonoBehaviour:
   bulletSpawnPoint: {fileID: 1517504083323600}
   MeleeBulletPrefab: {fileID: 1764004772942984, guid: be2db3ccc62818c46884509963cb5e0c,
     type: 2}
+  DeathAnimation: {fileID: 1737421546322632, guid: 2c51a335c0e395844b9f4cde1e81f2b6,
+    type: 2}
   entityCollider: {fileID: 0}
   Melee: 1
   Ranged: 0
@@ -2344,6 +2346,8 @@ MonoBehaviour:
   damageToDeal: 10
   healthBar: {fileID: 224980515036710672}
   currentHealth: 100
+  rockTimer: 0
+  waitingForRockTimer: 3
   isDead: 0
   isNearestEntityDead: 0
   moveSpeed: 3

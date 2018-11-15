@@ -20,6 +20,7 @@ public class Character : MonoBehaviour
     [SerializeField]
     private GameObject MeleeBulletPrefab;
     private GameObject Bullet;
+    public GameObject DeathAnimation;
 
     public Collider entityCollider;
     //public float playerID = 0;
@@ -256,5 +257,10 @@ public class Character : MonoBehaviour
     {
         Destroy(this.gameObject);
     }
-    
+
+    public void onDeath()
+    {
+
+        Instantiate(DeathAnimation, transform.position, transform.rotation);
+    }
 }
