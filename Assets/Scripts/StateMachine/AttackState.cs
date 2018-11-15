@@ -23,19 +23,48 @@ public class AttackState : State {
 
         if (!character.isNearestEntityDead)
         {
-            if (m_timeElapsed >= 0.99f)
-            character.onFire();
+            if (character.Melee == true)
+            {
+                if (m_timeElapsed >= 0.99f)
+                {
+                    character.RotateToward(character.nearestEntity.transform.position);
+                    character.onFire();
+                }
+            }
+            if (character.Ranged == true)
+            {
+                if (m_timeElapsed >= 0.99f)
+                {
+                    character.RotateToward(character.nearestEntity.transform.position);
+                    character.onFire();
+                }
+            }
+            if (character.RockThrower == true)
+            {
+
+            }
+            if (character.MagicUser == true)
+            {
+                if (m_timeElapsed >= 0.99f)
+                {
+                    character.RotateToward(character.nearestEntity.transform.position);
+                    character.onFire();
+                }
+            }
+
+            if (character.currentHealth == 0)
+            {
+                character.SetState(new DeathState(character));
+                //character.setAnimation("2handedDeath");
+            }
         }
         //bullet.rigidbody.AddForce(transform.forward * force);
         //gameObject bullet = Instantiate(BulletPrefab,GameObject.Find("spawnPoint").transform.position,Quaternion.identity
-        if (character.currentHealth == 0)
-        {
-            character.SetState(new DeathState(character));
-            //character.setAnimation("2handedDeath");
-        }
+        
 
         if (character.isNearestEntityDead)
         {
+            
             character.SetState(new IdleState(character));
         }
 
@@ -48,15 +77,35 @@ public class AttackState : State {
 
     public override void OnStateEnter()
     {
-        //character.GetComponent<Renderer>().material.color = Color.blue;
-        character.setAnimation("1handedAttack1Forward");
-        character.onFire();
+        if (character.Melee == true)
+        {
+            //character.GetComponent<Renderer>().material.color = Color.blue;
+            character.setAnimation("1handedAttack1Forward");
+            character.onFire();
+        }
+        if (character.Ranged == true)
+        {
+            character.RotateToward(character.nearestEntity.transform.position);
+            character.setAnimation("attack2");
+            character.onFire();
+        }
+        if (character.RockThrower == true)
+        {
+
+        }
+        if (character.MagicUser == true)
+        {
+            character.RotateToward(character.nearestEntity.transform.position);
+            character.setAnimation("attack1");
+            character.onFire();
+        }
 
     }
 
     public override void OnStateExit()
     {
-       // delete IdleState(character);
+        character.nearestEntity = null;
+        // delete IdleState(character);
     }
 
     private void FixedUpdate()

@@ -22,16 +22,35 @@ public class Character : MonoBehaviour
     private GameObject Bullet;
 
     public Collider entityCollider;
+    //public float playerID = 0;
+    //public float EnemyID = 0;
 
     private String entityName;
+    [SerializeField]
+    public bool Melee = false;
+    [SerializeField]
+    public bool Ranged = false;
+    [SerializeField]
+    public bool RockThrower = false;
+    [SerializeField]
+    public bool MagicUser = false;
+    [SerializeField]
+    public float distanceFromTargetToAttack = 0.0f;
 
+    [SerializeField]
+    int damageToDeal;
+    private Character EnemyScript;//Gives current player the ability to control his enemy, like take damage
 
     public RectTransform healthBar;
     public const int maxHealth = 100;
     [SerializeField]
     public int currentHealth = maxHealth;
-    [SerializeField]
-    public int dealDamage;
+    //[SerializeField]
+    //public int dealDamage;
+
+        
+    private GameObject MagicUserBullet;
+    private VolumetricLineSettings ScriptTest;
 
     public bool isDead;
     public bool isNearestEntityDead;
@@ -59,8 +78,8 @@ public class Character : MonoBehaviour
     {
         return currentHealth;
     }
-
-    public void TakeDamage(int amount)
+    /*
+    public void TakeRangedDamage(int amount)
     {
         currentHealth -= amount;
         if (currentHealth <= 0)
@@ -70,6 +89,12 @@ public class Character : MonoBehaviour
         }
         healthBar.sizeDelta = new Vector2(currentHealth, healthBar.sizeDelta.y);
     }
+    */
+    public void TakeDamage(int amount)
+    {
+        currentHealth -= amount;
+        healthBar.sizeDelta = new Vector2(currentHealth, healthBar.sizeDelta.y);
+    }
 
     public void setAnimation(string anim)
     {
@@ -77,11 +102,36 @@ public class Character : MonoBehaviour
     }
     public void onFire()
     {
-        Instantiate(MeleeBulletPrefab, bulletSpawnPoint.transform.position, bulletSpawnPoint.transform.rotation);
+        if (Melee == true)
+        {
+            //Instantiate(MeleeBulletPrefab, bulletSpawnPoint.transform.position, bulletSpawnPoint.transform.rotation);
+            EnemyScript.TakeDamage(damageToDeal);
+
+        }
+
+        if (Ranged == true)
+        {
+            Instantiate(MeleeBulletPrefab, bulletSpawnPoint.transform.position, bulletSpawnPoint.transform.rotation);
+        }
+
+        if (RockThrower == true)
+        {
+
+        }
+
+        if (MagicUser == true)
+        {
+            float SetValue = (nearestEntity.transform.position.z - transform.position.z);
+            MagicUserBullet = Instantiate(MeleeBulletPrefab, bulletSpawnPoint.transform.position, bulletSpawnPoint.transform.rotation);
+            MagicUserBullet.SendMessageUpwards("SetValue", SetValue, SendMessageOptions.DontRequireReceiver);
+            EnemyScript.TakeDamage(damageToDeal);
+        }
     }
 
     private void Start()
     {
+        //playerID = UnityEngine.Random.value;
+
         entityName = this.gameObject.name;
         m_Animator = GetComponent<Animator>();
         
@@ -90,11 +140,12 @@ public class Character : MonoBehaviour
         isDead = false;
         entityCollider = GetComponent<CapsuleCollider>();
         SetState(new IdleState(this));
-
     }
 
     private void Update()
     {
+
+
         currentState.Tick();
         
         colliders = Physics.OverlapSphere(transform.position, checkRadius, checkLayers);
@@ -104,7 +155,7 @@ public class Character : MonoBehaviour
         if (colliders[0] != null)
         nearestEntity = colliders[0].GetComponent<Transform>();
         isNearestEntityDead = colliders[0].GetComponent<Character>().amIDead();
-
+        EnemyScript = colliders[0].GetComponent<Character>();
         if (isNearestEntityDead)
         {
             
@@ -137,32 +188,44 @@ public class Character : MonoBehaviour
             currentState.OnStateEnter();
     }
 
-    public void MoveToward(Vector3 destination)
+    //public void MoveToward(Vector3 destination)
+    public void MoveToward(Transform destination)
     {
         // rotate and move towards object
 
+        Vector3 targetDirection = destination.position - transform.position;
+        Quaternion targetRotation = Quaternion.LookRotation(new Vector3(targetDirection.x, 0, targetDirection.z));
+        transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * moveSpeed);
 
-        var direction = GetDirection(destination);
+        transform.transform.position += transform.transform.forward * moveSpeed * Time.deltaTime;
+
+
+
         /*
         float step = rotateSpeed;// * Time.deltaTime;
         Vector3 newDir = Vector3.RotateTowards(transform.forward, destination, step, 0.0f);
         //draw line for rotation in the editor
         // Move our rotation position a step closer to the target
-        //transform.rotation = Quaternion.LookRotation(newDir);
+        
         transform.rotation = Quaternion.LookRotation(direction * Time.deltaTime * moveSpeed);
         //Debug.DrawRay(transform.position, newDir, Color.red);
         */
         // move towards object
-        transform.Translate(direction * Time.deltaTime * moveSpeed);
+        //transform.rotation = Quaternion.LookRotation(destination);
+
         //transform.rotation = Quaternion.LookRotation(direction * Time.deltaTime * moveSpeed);
+        //var direction = GetDirection(destination);
+        //transform.Translate(direction * Time.deltaTime * moveSpeed);
 
     }
+
+    
     public void RotateToward(Vector3 destination)
     {
-        /*
-        var direction = GetDirection(destination);
-        transform.Translate(direction * Time.deltaTime * moveSpeed);
-        */
+        
+        //var direction = GetDirection(destination);
+        //transform.Translate(direction * Time.deltaTime * moveSpeed);
+        
         var direction = GetDirection(destination);
         float step = rotateSpeed;// * Time.deltaTime;
         Vector3 newDir = Vector3.RotateTowards(transform.forward, destination, step, 0.0f);
@@ -175,12 +238,13 @@ public class Character : MonoBehaviour
         //Vector3 targetDir = nearestEntity.transform.position;
         
     }
-
+     
+     
     private Vector3 GetDirection(Vector3 destination)
     {
         return (destination - transform.position).normalized;
     }
-
+    
     private void OnDrawGizmos()
     {
         Gizmos.DrawWireSphere(transform.position, checkRadius);

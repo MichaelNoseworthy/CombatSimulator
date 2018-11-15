@@ -12,11 +12,18 @@ public class ReturnHomeState : State
 
     public override void Tick()
     {
-        character.MoveToward(destination);
+        character.MoveToward(character.nearestEntity);
 
         if (ReachedHome())
         {
             character.SetState(new WanderState(character));
+        }
+
+        if (character.currentHealth <= 0)
+        {
+            character.currentHealth = 0;
+            Debug.Log("Dead!");
+            character.SetState(new DeathState(character));
         }
     }
 

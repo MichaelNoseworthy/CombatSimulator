@@ -14,8 +14,25 @@ public class WanderState : State
 
     public override void OnStateEnter()
     {
+        
         nextDestination = GetDestination();
-        character.setAnimation("2handedWalk");
+        if (character.Melee == true)
+        {
+            character.setAnimation("2handedWalk");
+        }
+        if (character.Ranged == true)
+        {
+            character.setAnimation("walk");
+        }
+        if (character.RockThrower == true)
+        {
+
+        }
+        if (character.MagicUser == true)
+        {
+
+        }
+        
         character.isNearestEntityDead = character.nearestEntity.GetComponent<Character>().amIDead();
 
         //character.GetComponent<Renderer>().material.color = Color.green;
@@ -33,12 +50,20 @@ public class WanderState : State
         {
             character.SetState(new AttackState(character));
         }
-        
-        
 
-        character.MoveToward(GetDestination());
-        
+        character.isNearestEntityDead = character.nearestEntity.GetComponent<Character>().amIDead();
 
+        if (!character.isNearestEntityDead)
+            character.MoveToward(character.nearestEntity);
+        else
+            character.SetState(new IdleState(character));
+
+        if (character.currentHealth <= 0)
+        {
+            character.currentHealth = 0;
+            Debug.Log("Dead!");
+            character.SetState(new DeathState(character));
+        }
         //timer += Time.deltaTime;
         /*
         if (character.nearestEntity != null)
@@ -51,7 +76,15 @@ public class WanderState : State
 
     private bool ReachedDestination()
     {
+        if (character.Melee == true)
+        return Vector3.Distance(character.transform.position, character.nearestEntity.position) < character.distanceFromTargetToAttack;
+        if (character.Ranged == true)
+            return Vector3.Distance(character.transform.position, character.nearestEntity.position) < character.distanceFromTargetToAttack;
+        if (character.RockThrower == true)
+            return Vector3.Distance(character.transform.position, character.nearestEntity.position) < character.distanceFromTargetToAttack;
+        if (character.MagicUser == true)
+            return Vector3.Distance(character.transform.position, character.nearestEntity.position) < character.distanceFromTargetToAttack;
 
-        return Vector3.Distance(character.transform.position, character.nearestEntity.position) < 1.5f;
+        else return true;
     }
 }

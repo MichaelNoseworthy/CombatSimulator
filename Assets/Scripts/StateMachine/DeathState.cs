@@ -10,28 +10,47 @@ public class DeathState : State {
 
     public override void Tick()
     {
-
+        character.destroyAI();
     }
 
     public override void OnStateEnter()
     {
         character.isDead = true;
-        character.setAnimation("2handedDeath");
-        changeLayer();
         
-        destroyCharacter();
+        character.setAnimation("2handedDeath");
+        //character.destroyAI();
+
+        //Does not work properly:
+        //changeLayer();
+        
+       //destroyCharacter();
     }
 
     IEnumerator changeLayer()
     {
-        yield return new WaitForSeconds(0.1f);
+        yield return new WaitForSeconds(0.2f);
         character.gameObject.layer = 0;
     }
 
     IEnumerator destroyCharacter()
     {
-        yield return new WaitForSeconds(0.5f);
-        character.entityCollider.enabled = false;
+        yield return new WaitForSeconds(0.1f);
+        if (character.Melee == true)
+        {
+            character.destroyAI();
+        }
+        if (character.Ranged == true)
+        {
+            character.destroyAI();
+        }
+        if (character.RockThrower == true)
+        {
+            character.destroyAI();
+        }
+        if (character.MagicUser == true)
+        {
+            character.destroyAI();
+        }
         character.destroyAI();
     }
 
