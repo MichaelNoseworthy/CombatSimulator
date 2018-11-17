@@ -9,14 +9,6 @@ public class RangedBullet : MonoBehaviour
     public float Force = 700;
     public int TakeDamage;
     Rigidbody m_rb;
-
-    float startTime;
-    /*
-    [SerializeField]
-    LayerMask Checklayers;
-    [SerializeField]
-    LayerMask Ignorelayers;
-    */
     public string LayerToDamage;
 
 
@@ -30,7 +22,7 @@ public class RangedBullet : MonoBehaviour
     /// </summary>
     void Awake()
     {
-        startTime = Time.time;
+        //startTime = Time.time;
         //Physics.IgnoreCollision(GetComponent<Collider>(), GetComponent<Collider>());
         //Physics.IgnoreLayerCollision(0, 8);
 

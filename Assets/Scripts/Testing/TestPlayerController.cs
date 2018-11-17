@@ -7,11 +7,11 @@ public class TestPlayerController : MonoBehaviour {
     public float speed = 3.0f;
     public float rotateSpeed = 3.0f;
 
-    private CharacterController controller;
+    //private CharacterController controller;
 
 	// Use this for initialization
 	void Start () {
-        controller = GetComponent<CharacterController>();
+        //controller = GetComponent<CharacterController>();
 	}
 	
 	// Update is called once per frame

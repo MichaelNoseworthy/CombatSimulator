@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class AttackState : State {
 
-    private Vector3 destination = Vector3.zero;
+    //private Vector3 destination = Vector3.zero;
 
     public float m_timeElapsed = 0.0f;
 
@@ -47,6 +47,10 @@ public class AttackState : State {
                     character.RotateToward(character.nearestEntity.transform.position);
                     character.setAnimation("attack2");
                     character.onFire();
+                    if (character.rockTimer > 0.5f)
+                    {
+                        character.setAnimation("idle");
+                    }
                     character.rockTimer = 0;
                 }
                 //character.setAnimation("idle");
@@ -100,7 +104,7 @@ public class AttackState : State {
         if (character.RockThrower == true)
         {
             character.RotateToward(character.nearestEntity.transform.position);
-            character.setAnimation("attack2");
+            character.setAnimation("idle");
             character.onFire();
 
 
@@ -108,7 +112,7 @@ public class AttackState : State {
         if (character.MagicUser == true)
         {
             character.RotateToward(character.nearestEntity.transform.position);
-            character.setAnimation("attack1");
+            character.setAnimation("getHit");
             character.onFire();
         }
 

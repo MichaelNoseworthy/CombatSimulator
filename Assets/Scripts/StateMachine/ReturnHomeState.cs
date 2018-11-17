@@ -22,7 +22,6 @@ public class ReturnHomeState : State
         if (character.currentHealth <= 0)
         {
             character.currentHealth = 0;
-            Debug.Log("Dead!");
             character.SetState(new DeathState(character));
         }
     }

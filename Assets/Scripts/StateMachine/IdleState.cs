@@ -25,7 +25,6 @@ public class IdleState : State {
         if (character.currentHealth <= 0)
         {
             character.currentHealth = 0;
-            Debug.Log("Dead!");
             character.SetState(new DeathState(character));
         }
 
@@ -48,7 +47,7 @@ public class IdleState : State {
         }
         if (character.MagicUser == true)
         {
-            character.setAnimation("sleep");
+            //character.setAnimation("sleep");
         }
         
     }

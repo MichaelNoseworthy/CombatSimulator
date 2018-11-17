@@ -15,16 +15,10 @@ public class DeathState : State {
 
     public override void OnStateEnter()
     {
-        character.isDead = true;
+        character.isDead = true;//Tells the other AI's that this player is dead
 
-        //character.setAnimation("2handedDeath");
-        //character.destroyAI();
-
-        //Does not work properly:
-        //changeLayer();
-
-        //destroyCharacter();
-        character.onDeath();
+        Debug.Log(character.entityName + " - Dead!");
+        character.onDeath();//Creates a death animation
         if (character.Melee == true)
         {
             
@@ -42,7 +36,7 @@ public class DeathState : State {
             
         }
     }
-
+    /*
     IEnumerator changeLayer()
     {
         yield return new WaitForSeconds(0.2f);
@@ -71,6 +65,6 @@ public class DeathState : State {
         character.destroyAI();
     }
 
-    
+    */
 
 }

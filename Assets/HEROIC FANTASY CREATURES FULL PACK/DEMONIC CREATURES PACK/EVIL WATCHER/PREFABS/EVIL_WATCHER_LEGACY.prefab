@@ -924,6 +924,7 @@ GameObject:
   m_Component:
   - component: {fileID: 426054}
   - component: {fileID: 11185622}
+  - component: {fileID: 95447814411858992}
   m_Layer: 0
   m_Name: EVIL_WATCHER_LEGACY
   m_TagString: Untagged
@@ -3873,3 +3874,21 @@ Prefab:
   m_SourcePrefab: {fileID: 0}
   m_RootGameObject: {fileID: 155874}
   m_IsPrefabAsset: 1
+--- !u!95 &95447814411858992
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 155874}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d7e06d198a7186c479232d49a440d3b8, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

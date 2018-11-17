@@ -16,31 +16,31 @@ using UnityEngine.UI;
 public class Character : MonoBehaviour
 {
     [SerializeField]
-    private GameObject bulletSpawnPoint;
+    private GameObject bulletSpawnPoint;//Where bullets/attacks spawn from
     [SerializeField]
-    private GameObject MeleeBulletPrefab;
-    private GameObject Bullet;
+    private GameObject BulletPrefab; //The bullet used to attack with if any
+    //private GameObject Bullet;
     public GameObject DeathAnimation;
 
     public Collider entityCollider;
     //public float playerID = 0;
     //public float EnemyID = 0;
 
-    private String entityName;
+    public String entityName; //Name of current entity
     [SerializeField]
-    public bool Melee = false;
+    public bool Melee = false;//character type
     [SerializeField]
-    public bool Ranged = false;
+    public bool Ranged = false;//character type
     [SerializeField]
-    public bool RockThrower = false;
+    public bool RockThrower = false;//character type
     [SerializeField]
-    public bool MagicUser = false;
+    public bool MagicUser = false;//character type
     [SerializeField]
-    public float distanceFromTargetToAttack = 0.0f;
+    public float distanceFromTargetToAttack = 0.0f;//Distance before AI Entity decides to attack
 
     [SerializeField]
     int damageToDeal;
-    private Character EnemyScript;//Gives current player the ability to control his enemy, like take damage
+    private Character EnemyScript;//Gives current AI Enitity the ability to control his enemy, like take damage
 
     
 
@@ -50,29 +50,29 @@ public class Character : MonoBehaviour
     public int currentHealth = maxHealth;
     //[SerializeField]
     //public int dealDamage;
-    public float rockTimer = 0.0f;
-    public float waitingForRockTimer = 3;
+    public float rockTimer = 0.0f;//initial time For the RockThrower
+    public float waitingForRockTimer = 3;//max time for the rock thrower to shoot
 
 
-    private GameObject MagicUserBullet;
-    private VolumetricLineSettings ScriptTest;
+    private GameObject MagicUserBullet;//Gives the ability to control the beam/bullet
 
-    public bool isDead;
-    public bool isNearestEntityDead;
+    //isDead is for the current AI, isNearestEntityDead is for getting that information from another AI.
+    public bool isDead;//Reports whether or not the current AI is in DeathState
+    public bool isNearestEntityDead;//Gets the report of whether the enemy AI is in DeathState
 
-    Animator m_Animator;
+    Animator m_Animator;//Gets the animations for this AI
 
     [SerializeField]
-    private float moveSpeed = 3f;
-    [SerializeField]
-    private float rotateSpeed = 3f;
+    private float moveSpeed = 3f;//How fast the AI moves
+    //[SerializeField]
+    //private float rotateSpeed = 3f;
 
     private State currentState;
-    public Transform nearestEntity;
-    public float checkRadius;
-    public LayerMask checkLayers;
+    public Transform nearestEntity;//Gets the location of the nearest enemy AI
+    public float checkRadius;//Range to check for enemy AI
+    public LayerMask checkLayers;//Which layer to check for the enemy.
 
-    public static Collider[] colliders;
+    public static Collider[] colliders;//Array to place where the closest enemy AI is
 
     public bool amIDead()
     {
@@ -83,18 +83,7 @@ public class Character : MonoBehaviour
     {
         return currentHealth;
     }
-    /*
-    public void TakeRangedDamage(int amount)
-    {
-        currentHealth -= amount;
-        if (currentHealth <= 0)
-        {
-            currentHealth = 0;
-            Debug.Log("Dead!");
-        }
-        healthBar.sizeDelta = new Vector2(currentHealth, healthBar.sizeDelta.y);
-    }
-    */
+
     public void TakeDamage(int amount)
     {
         currentHealth -= amount;
@@ -109,14 +98,12 @@ public class Character : MonoBehaviour
     {
         if (Melee == true)
         {
-            //Instantiate(MeleeBulletPrefab, bulletSpawnPoint.transform.position, bulletSpawnPoint.transform.rotation);
             EnemyScript.TakeDamage(damageToDeal);
-
         }
 
         if (Ranged == true)
         {
-            Instantiate(MeleeBulletPrefab, bulletSpawnPoint.transform.position, bulletSpawnPoint.transform.rotation);
+            Instantiate(BulletPrefab, bulletSpawnPoint.transform.position, bulletSpawnPoint.transform.rotation);
         }
 
         if (RockThrower == true)
@@ -126,17 +113,16 @@ public class Character : MonoBehaviour
 
         if (MagicUser == true)
         {
+            //For the animation to work one needs to get the distance from the current AI to the enemy AI, then cast the beam/bullet
             float SetValue = (nearestEntity.transform.position.z - transform.position.z);
-            MagicUserBullet = Instantiate(MeleeBulletPrefab, bulletSpawnPoint.transform.position, bulletSpawnPoint.transform.rotation);
-            MagicUserBullet.SendMessageUpwards("SetValue", SetValue, SendMessageOptions.DontRequireReceiver);
-            EnemyScript.TakeDamage(damageToDeal);
+            MagicUserBullet = Instantiate(BulletPrefab, bulletSpawnPoint.transform.position, bulletSpawnPoint.transform.rotation);
+            MagicUserBullet.SendMessageUpwards("SetValue", SetValue, SendMessageOptions.DontRequireReceiver);//Sends the coordinates to the beam/bullet
+            EnemyScript.TakeDamage(damageToDeal);//deals damage to the enemy
         }
     }
 
     private void Start()
     {
-        //playerID = UnityEngine.Random.value;
-
         entityName = this.gameObject.name;
         m_Animator = GetComponent<Animator>();
         
@@ -144,7 +130,7 @@ public class Character : MonoBehaviour
         //m_Animator.Play("2handedWalk");
         isDead = false;
         entityCollider = GetComponent<CapsuleCollider>();
-        SetState(new IdleState(this));
+        SetState(new IdleState(this));//default state
     }
 
     private void Update()
@@ -152,33 +138,42 @@ public class Character : MonoBehaviour
         
         bool pausegame = GameObject.FindWithTag("GameController").GetComponent<GameManager>().PauseGame;
         if (pausegame)
-        currentState.Tick();
+        {
+            
+
+            colliders = Physics.OverlapSphere(transform.position, checkRadius, checkLayers);
+            try
+            {
+                if (colliders[0] != null)
+                    Array.Sort(colliders, new DistanceComparer(transform));
+                if (colliders[0] != null)
+                    nearestEntity = colliders[0].GetComponent<Transform>();
+                isNearestEntityDead = colliders[0].GetComponent<Character>().amIDead();
+                EnemyScript = colliders[0].GetComponent<Character>();
+
+                if (isNearestEntityDead)
+                {
+                    nearestEntity = null;
+                    colliders = null;
+                }
+
+                if (nearestEntity == null)
+                {
+                    colliders = Physics.OverlapSphere(transform.position, checkRadius, checkLayers);
+                    Array.Sort(colliders, new DistanceComparer(transform));
+                    nearestEntity = colliders[0].GetComponent<Transform>();
+                }
+            }
+            catch (IndexOutOfRangeException ex)
+            {
+                //Suppressing the error that the array is out of bounds when checking if colliders are null
+                //Debug.Log("Index error intentional");
+            }
+
+            currentState.Tick();
+        }
+
         
-        colliders = Physics.OverlapSphere(transform.position, checkRadius, checkLayers);
-        if (colliders[0] != null)
-            Array.Sort(colliders, new DistanceComparer(transform));
-
-        if (colliders[0] != null)
-        nearestEntity = colliders[0].GetComponent<Transform>();
-        isNearestEntityDead = colliders[0].GetComponent<Character>().amIDead();
-        EnemyScript = colliders[0].GetComponent<Character>();
-        if (isNearestEntityDead)
-        {
-            
-            nearestEntity = null;
-            colliders = null;
-            //colliders = Physics.OverlapSphere(transform.position, checkRadius, checkLayers);
-            //Array.Sort(colliders, new DistanceComparer(transform));
-            
-
-        }
-
-        if (nearestEntity == null)
-        {
-            Collider[] colliders = Physics.OverlapSphere(transform.position, checkRadius, checkLayers);
-            Array.Sort(colliders, new DistanceComparer(transform));
-            nearestEntity = colliders[0].GetComponent<Transform>();
-        }
     }
 
     public void SetState(State state)
@@ -194,7 +189,7 @@ public class Character : MonoBehaviour
             currentState.OnStateEnter();
     }
 
-    //public void MoveToward(Vector3 destination)
+    //Used to move the AI towards a destination
     public void MoveToward(Transform destination)
     {
         // rotate and move towards object
@@ -202,46 +197,16 @@ public class Character : MonoBehaviour
         Vector3 targetDirection = destination.position - transform.position;
         Quaternion targetRotation = Quaternion.LookRotation(new Vector3(targetDirection.x, 0, targetDirection.z));
         transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * moveSpeed);
-
         transform.transform.position += transform.transform.forward * moveSpeed * Time.deltaTime;
-
-
-
-        /*
-        float step = rotateSpeed;// * Time.deltaTime;
-        Vector3 newDir = Vector3.RotateTowards(transform.forward, destination, step, 0.0f);
-        //draw line for rotation in the editor
-        // Move our rotation position a step closer to the target
-        
-        transform.rotation = Quaternion.LookRotation(direction * Time.deltaTime * moveSpeed);
-        //Debug.DrawRay(transform.position, newDir, Color.red);
-        */
-        // move towards object
-        //transform.rotation = Quaternion.LookRotation(destination);
-
-        //transform.rotation = Quaternion.LookRotation(direction * Time.deltaTime * moveSpeed);
-        //var direction = GetDirection(destination);
-        //transform.Translate(direction * Time.deltaTime * moveSpeed);
-
     }
 
-    
+    //Used during attacks to move the AI's front position towards the enemy AI
     public void RotateToward(Vector3 destination)
     {
         
-        //var direction = GetDirection(destination);
-        //transform.Translate(direction * Time.deltaTime * moveSpeed);
-        
         var direction = GetDirection(destination);
-        float step = rotateSpeed;// * Time.deltaTime;
-        Vector3 newDir = Vector3.RotateTowards(transform.forward, destination, step, 0.0f);
-        //draw line for rotation in the editor
-        // Move our rotation position a step closer to the target
-        //transform.rotation = Quaternion.LookRotation(newDir);
         transform.rotation = Quaternion.LookRotation(direction * Time.deltaTime * moveSpeed);
-        //Debug.DrawRay(transform.position, newDir, Color.red);
-
-        //Vector3 targetDir = nearestEntity.transform.position;
+        Debug.DrawRay(transform.position, direction, Color.red);
         
     }
      

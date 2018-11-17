@@ -1257,11 +1257,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletSpawnPoint: {fileID: 1746180350199444}
-  MeleeBulletPrefab: {fileID: 1389213776102310, guid: 396505930412a4f4ba86fc5901270cc8,
+  BulletPrefab: {fileID: 1389213776102310, guid: 396505930412a4f4ba86fc5901270cc8,
     type: 2}
   DeathAnimation: {fileID: 1205046702269300, guid: aff91f0333bd1494d80bd5a9ac532c9b,
     type: 2}
   entityCollider: {fileID: 0}
+  entityName: 
   Melee: 0
   Ranged: 0
   RockThrower: 1
@@ -1275,7 +1276,6 @@ MonoBehaviour:
   isDead: 0
   isNearestEntityDead: 0
   moveSpeed: 3
-  rotateSpeed: 3
   nearestEntity: {fileID: 0}
   checkRadius: 15
   checkLayers:

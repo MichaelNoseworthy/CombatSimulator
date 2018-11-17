@@ -4,9 +4,7 @@ using UnityEngine;
 
 
 public class WanderState : State
-{
-    private Vector3 nextDestination;
-    
+{  
 
     public WanderState(Character character) : base(character)
     {
@@ -15,7 +13,6 @@ public class WanderState : State
     public override void OnStateEnter()
     {
         
-        nextDestination = GetDestination();
         if (character.Melee == true)
         {
             character.setAnimation("2handedWalk");
@@ -40,7 +37,7 @@ public class WanderState : State
 
     private Vector3 GetDestination()
     {
-        Vector3 targetDir = character.nearestEntity.position;// - character.transform.position;
+        Vector3 targetDir = character.nearestEntity.position;
             return targetDir;
     }
 
@@ -49,18 +46,18 @@ public class WanderState : State
         if (character.currentHealth <= 0)
         {
             character.currentHealth = 0;
-            Debug.Log("Dead!");
             character.SetState(new DeathState(character));
+        }
+        if (character.nearestEntity == null || character.isNearestEntityDead == true)
+        {
+            character.SetState(new IdleState(character));
         }
         if (ReachedDestination())
         {
             character.SetState(new AttackState(character));
         }
 
-        if (character.nearestEntity == null || character.isNearestEntityDead == true)
-        {
-            character.SetState(new IdleState(character));
-        }
+        
 
         character.isNearestEntityDead = character.nearestEntity.GetComponent<Character>().amIDead();
 
@@ -68,22 +65,13 @@ public class WanderState : State
             character.MoveToward(character.nearestEntity);
         else
             character.SetState(new IdleState(character));
-
         
-        //timer += Time.deltaTime;
-        /*
-        if (character.nearestEntity != null)
-            if (Vector3.Distance(character.transform.position, character.nearestEntity.position) < 1.0f)
-        {
-            character.SetState(new AttackState(character));
-        }
-        */
     }
 
     private bool ReachedDestination()
     {
         if (character.Melee == true)
-        return Vector3.Distance(character.transform.position, character.nearestEntity.position) < character.distanceFromTargetToAttack;
+            return Vector3.Distance(character.transform.position, character.nearestEntity.position) < character.distanceFromTargetToAttack;
         if (character.Ranged == true)
             return Vector3.Distance(character.transform.position, character.nearestEntity.position) < character.distanceFromTargetToAttack;
         if (character.RockThrower == true)
@@ -91,6 +79,6 @@ public class WanderState : State
         if (character.MagicUser == true)
             return Vector3.Distance(character.transform.position, character.nearestEntity.position) < character.distanceFromTargetToAttack;
 
-        else return true;
+        else return false;
     }
 }

@@ -636,10 +636,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4427452620855978}
-  - component: {fileID: 111551352625598772}
   - component: {fileID: 143775615535877798}
   - component: {fileID: 114942333689304484}
   - component: {fileID: 136985543838142324}
+  - component: {fileID: 95175942815989846}
   m_Layer: 10
   m_Name: MAGICUSER_WATCHER ALLY
   m_TagString: Allies
@@ -3765,32 +3765,24 @@ Transform:
   m_Father: {fileID: 4663294066295726}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!111 &111551352625598772
-Animation:
+--- !u!95 &95175942815989846
+Animator:
+  serializedVersion: 3
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1354082659206470}
   m_Enabled: 1
-  serializedVersion: 3
-  m_Animation: {fileID: 7400000, guid: abe4155613fd851498d75d9d12cd90e6, type: 3}
-  m_Animations:
-  - {fileID: 7400000, guid: 938edb24c11e9014aa19fd86e3dc0625, type: 3}
-  - {fileID: 7400000, guid: dd58c4cb14c7e944ab6247f6f5d8226d, type: 3}
-  - {fileID: 7400000, guid: 2e8a63c734a727d46a6f9809f142c11d, type: 3}
-  - {fileID: 7400000, guid: 7d006c8019706b94eb8e97fd55b22024, type: 3}
-  - {fileID: 7400000, guid: 023d279374726bc42a5cea09463d80e9, type: 3}
-  - {fileID: 7400000, guid: cdd954e0573d14842b55f79e02b3f30e, type: 3}
-  - {fileID: 7400000, guid: abe4155613fd851498d75d9d12cd90e6, type: 3}
-  - {fileID: 7400000, guid: ea82e800fef2f7d46beb419b16c2ba5a, type: 3}
-  - {fileID: 7400000, guid: bb2e1ee4e6517c549ab41f3fb90f8d50, type: 3}
-  - {fileID: 7400000, guid: 1907c1492888c8e44b2a29c0ce48bf8b, type: 3}
-  - {fileID: 7400000, guid: bae085b7bea90284d8c60952482e23de, type: 3}
-  - {fileID: 7400000, guid: 1147a54c0781f834aa277d5a104d8a43, type: 3}
-  m_WrapMode: 0
-  m_PlayAutomatically: 1
-  m_AnimatePhysics: 0
-  m_CullingType: 1
+  m_Avatar: {fileID: 9000000, guid: 938edb24c11e9014aa19fd86e3dc0625, type: 3}
+  m_Controller: {fileID: 9100000, guid: d7e06d198a7186c479232d49a440d3b8, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &114225797966883378
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3905,9 +3897,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletSpawnPoint: {fileID: 1541819347895994}
-  MeleeBulletPrefab: {fileID: 1818175442945270, guid: b2c9cb5a9bf7468429ce792c14f53284,
+  BulletPrefab: {fileID: 1818175442945270, guid: b2c9cb5a9bf7468429ce792c14f53284,
     type: 2}
+  DeathAnimation: {fileID: 0}
   entityCollider: {fileID: 0}
+  entityName: 
   Melee: 0
   Ranged: 0
   RockThrower: 0
@@ -3916,10 +3910,11 @@ MonoBehaviour:
   damageToDeal: 10
   healthBar: {fileID: 224090775052687926}
   currentHealth: 200
+  rockTimer: 0
+  waitingForRockTimer: 3
   isDead: 0
   isNearestEntityDead: 0
   moveSpeed: 3
-  rotateSpeed: 3
   nearestEntity: {fileID: 0}
   checkRadius: 15
   checkLayers:
