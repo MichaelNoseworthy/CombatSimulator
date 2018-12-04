@@ -3899,7 +3899,8 @@ MonoBehaviour:
   bulletSpawnPoint: {fileID: 1541819347895994}
   BulletPrefab: {fileID: 1818175442945270, guid: b2c9cb5a9bf7468429ce792c14f53284,
     type: 2}
-  DeathAnimation: {fileID: 0}
+  DeathAnimation: {fileID: 1209185153312204, guid: 95c94f53e3c132942944b91bffb93687,
+    type: 2}
   entityCollider: {fileID: 0}
   entityName: 
   Melee: 0
