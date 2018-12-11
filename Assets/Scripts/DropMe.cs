@@ -9,6 +9,7 @@ public class DropMe : MonoBehaviour, IDropHandler, IPointerEnterHandler, IPointe
 	public Image receivingImage;
 	private Color normalColor;
 	public Color highlightColor = Color.yellow;
+    public string imageName;
 	
 	public void OnEnable ()
 	{
@@ -59,7 +60,10 @@ public class DropMe : MonoBehaviour, IDropHandler, IPointerEnterHandler, IPointe
 		var srcImage = originalObj.GetComponent<Image>();
 		if (srcImage == null)
 			return null;
-		
-		return srcImage.sprite;
+
+
+        imageName = srcImage.sprite.name;
+        GameObject.FindWithTag("Image1").GetComponent<UnityEngine.UI.Text>().text = imageName.ToString();
+        return srcImage.sprite;
 	}
 }

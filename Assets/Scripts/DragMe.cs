@@ -11,6 +11,8 @@ public class DragMe : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHa
 	private Dictionary<int,GameObject> m_DraggingIcons = new Dictionary<int, GameObject>();
 	private Dictionary<int, RectTransform> m_DraggingPlanes = new Dictionary<int, RectTransform>();
 
+    public string imageName;
+
 	public void OnBeginDrag(PointerEventData eventData)
 	{
 		var canvas = FindInParents<Canvas>(gameObject);
@@ -32,11 +34,14 @@ public class DragMe : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHa
 
 		image.sprite = GetComponent<Image>().sprite;
 		image.SetNativeSize();
-		
-		if (dragOnSurfaces)
+        imageName = image.sprite.name;
+
+        if (dragOnSurfaces)
 			m_DraggingPlanes[eventData.pointerId] = transform as RectTransform;
 		else
 			m_DraggingPlanes[eventData.pointerId]  = canvas.transform as RectTransform;
+
+        
 		
 		SetDraggedPosition(eventData);
 	}
