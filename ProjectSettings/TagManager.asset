@@ -9,6 +9,13 @@ TagManager:
   - Enemies
   - Ground
   - Image1
+  - Image2
+  - Image3
+  - Image4
+  - Image5
+  - Image6
+  - GameManager
+  - Settings
   layers:
   - Default
   - TransparentFX

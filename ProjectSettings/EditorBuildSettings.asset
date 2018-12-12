@@ -8,11 +8,17 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Menu 3D.unity
     guid: fa0913115ac1d4fba8b9d10280f4b04d
+  - enabled: 1
+    path: Assets/Scenes/DragAndDrop.unity
+    guid: 40116c4af15e1444f8e21d1de1f4678f
+  - enabled: 1
+    path: Assets/Scenes/BattleScreen2.unity
+    guid: f2ff629ca86155d4b9eee4e2a6ff3ff8
   - enabled: 0
     path: Assets/Scenes/GameScreen.unity
     guid: 99c9720ab356a0642a771bea13969a05
   - enabled: 0
-    path: Assets/Scenes/GameScreen2.unity
+    path: Assets/Scenes/BattleScreen.unity
     guid: 10bbc160a3ebc744db121af9b9afd140
   - enabled: 0
     path: Assets/Scenes/MainMenu.unity
@@ -29,7 +35,7 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/Catapulter.unity
     guid: 3d20ca0399e31df469a53349632db1f4
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/FightTest.unity
     guid: 75173d4ea3c284942b42038c6ce02de8
   m_configObjects: {}

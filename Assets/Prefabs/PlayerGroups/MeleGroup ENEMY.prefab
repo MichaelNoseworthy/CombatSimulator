@@ -6489,7 +6489,7 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1675111889771546}
-  m_LocalRotation: {x: -0, y: 1, z: -0, w: 0}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
   m_LocalPosition: {x: 0, y: 0.009999752, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -6500,7 +6500,7 @@ Transform:
   - {fileID: 4232782261017884}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!4 &4211754484109304
 Transform:
   m_ObjectHideFlags: 1
@@ -11286,11 +11286,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletSpawnPoint: {fileID: 1348818727743294}
-  MeleeBulletPrefab: {fileID: 1764004772942984, guid: be2db3ccc62818c46884509963cb5e0c,
-    type: 2}
+  BulletPrefab: {fileID: 0}
   DeathAnimation: {fileID: 1737421546322632, guid: 2c51a335c0e395844b9f4cde1e81f2b6,
     type: 2}
   entityCollider: {fileID: 0}
+  entityName: 
   Melee: 1
   Ranged: 0
   RockThrower: 0
@@ -11304,9 +11304,8 @@ MonoBehaviour:
   isDead: 0
   isNearestEntityDead: 0
   moveSpeed: 3
-  rotateSpeed: 3
   nearestEntity: {fileID: 0}
-  checkRadius: 15
+  checkRadius: 100
   checkLayers:
     serializedVersion: 2
     m_Bits: 1024
@@ -11322,11 +11321,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletSpawnPoint: {fileID: 1800748125261808}
-  MeleeBulletPrefab: {fileID: 1764004772942984, guid: be2db3ccc62818c46884509963cb5e0c,
-    type: 2}
+  BulletPrefab: {fileID: 0}
   DeathAnimation: {fileID: 1737421546322632, guid: 2c51a335c0e395844b9f4cde1e81f2b6,
     type: 2}
   entityCollider: {fileID: 0}
+  entityName: 
   Melee: 1
   Ranged: 0
   RockThrower: 0
@@ -11340,9 +11339,8 @@ MonoBehaviour:
   isDead: 0
   isNearestEntityDead: 0
   moveSpeed: 3
-  rotateSpeed: 3
   nearestEntity: {fileID: 0}
-  checkRadius: 15
+  checkRadius: 100
   checkLayers:
     serializedVersion: 2
     m_Bits: 1024
@@ -11401,11 +11399,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletSpawnPoint: {fileID: 1341542787080206}
-  MeleeBulletPrefab: {fileID: 1764004772942984, guid: be2db3ccc62818c46884509963cb5e0c,
-    type: 2}
+  BulletPrefab: {fileID: 0}
   DeathAnimation: {fileID: 1737421546322632, guid: 2c51a335c0e395844b9f4cde1e81f2b6,
     type: 2}
   entityCollider: {fileID: 0}
+  entityName: 
   Melee: 1
   Ranged: 0
   RockThrower: 0
@@ -11419,9 +11417,8 @@ MonoBehaviour:
   isDead: 0
   isNearestEntityDead: 0
   moveSpeed: 3
-  rotateSpeed: 3
   nearestEntity: {fileID: 0}
-  checkRadius: 15
+  checkRadius: 100
   checkLayers:
     serializedVersion: 2
     m_Bits: 1024
@@ -11845,11 +11842,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletSpawnPoint: {fileID: 1531757302840204}
-  MeleeBulletPrefab: {fileID: 1764004772942984, guid: be2db3ccc62818c46884509963cb5e0c,
-    type: 2}
+  BulletPrefab: {fileID: 0}
   DeathAnimation: {fileID: 1737421546322632, guid: 2c51a335c0e395844b9f4cde1e81f2b6,
     type: 2}
   entityCollider: {fileID: 0}
+  entityName: 
   Melee: 1
   Ranged: 0
   RockThrower: 0
@@ -11863,9 +11860,8 @@ MonoBehaviour:
   isDead: 0
   isNearestEntityDead: 0
   moveSpeed: 3
-  rotateSpeed: 3
   nearestEntity: {fileID: 0}
-  checkRadius: 15
+  checkRadius: 100
   checkLayers:
     serializedVersion: 2
     m_Bits: 1024
@@ -11924,11 +11920,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletSpawnPoint: {fileID: 1500286062072906}
-  MeleeBulletPrefab: {fileID: 1764004772942984, guid: be2db3ccc62818c46884509963cb5e0c,
-    type: 2}
+  BulletPrefab: {fileID: 0}
   DeathAnimation: {fileID: 1737421546322632, guid: 2c51a335c0e395844b9f4cde1e81f2b6,
     type: 2}
   entityCollider: {fileID: 0}
+  entityName: 
   Melee: 1
   Ranged: 0
   RockThrower: 0
@@ -11942,9 +11938,8 @@ MonoBehaviour:
   isDead: 0
   isNearestEntityDead: 0
   moveSpeed: 3
-  rotateSpeed: 3
   nearestEntity: {fileID: 0}
-  checkRadius: 15
+  checkRadius: 100
   checkLayers:
     serializedVersion: 2
     m_Bits: 1024
