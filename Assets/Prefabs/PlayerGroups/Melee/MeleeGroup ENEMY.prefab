@@ -3690,7 +3690,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4209624427845596}
   m_Layer: 9
-  m_Name: MeleGroup ENEMY
+  m_Name: MeleeGroup ENEMY
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

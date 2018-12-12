@@ -2244,6 +2244,18 @@ MonoBehaviour:
     type: 2}
   EnemiesMeleeGroupPrefab: {fileID: 1675111889771546, guid: b2e9fc6265e94df44bc810d40fcb56dd,
     type: 2}
+  AlliesRangedGroupPrefab: {fileID: 1713359813492318, guid: 462ea6de1c6665e43ad70fc1d06496ff,
+    type: 2}
+  EnemiesRangedGroupPrefab: {fileID: 1377151573902160, guid: abfea814ca7c164489553763b1478a19,
+    type: 2}
+  AlliesMagicUserGroupPrefab: {fileID: 1880751046980438, guid: cbda8799ff5669649b9fa9eb96e37614,
+    type: 2}
+  EnemiesMagicUserGroupPrefab: {fileID: 1351429589699088, guid: c5f36d49dd4fe0348be7b9fa15a353c5,
+    type: 2}
+  AlliesRockThrowerGroupPrefab: {fileID: 1691722252650778, guid: 2118ba05f9a92f048a2eb91e569ec9b4,
+    type: 2}
+  EnemiesRockThrowerGroupPrefab: {fileID: 1890709815827608, guid: 2e1e8e23da49c054d977373e383c24fb,
+    type: 2}
 --- !u!4 &2037840730
 Transform:
   m_ObjectHideFlags: 0

@@ -82,7 +82,7 @@ public class DropMe : MonoBehaviour, IDropHandler, IPointerEnterHandler, IPointe
             GameObject.FindWithTag("Image1").GetComponent<UnityEngine.UI.Text>().text = imageName.ToString();
             if (imageName.Equals("MagicUsers"))
             {
-                GameObject.FindWithTag("Settings").GetComponent<PrefabSettings>().setSoldier1(1);
+                GameObject.FindWithTag("Settings").GetComponent<PrefabSettings>().setSoldier1(3);
             }
             if (imageName.Equals("Ranged"))
             {
@@ -90,11 +90,11 @@ public class DropMe : MonoBehaviour, IDropHandler, IPointerEnterHandler, IPointe
             }
             if (imageName.Equals("RockThrower"))
             {
-                GameObject.FindWithTag("Settings").GetComponent<PrefabSettings>().setSoldier1(3);
+                GameObject.FindWithTag("Settings").GetComponent<PrefabSettings>().setSoldier1(4);
             }
             if (imageName.Equals("Skeletons"))
             {
-                GameObject.FindWithTag("Settings").GetComponent<PrefabSettings>().setSoldier1(4);
+                GameObject.FindWithTag("Settings").GetComponent<PrefabSettings>().setSoldier1(1);
             }
         }
         if (Position2)
@@ -103,7 +103,7 @@ public class DropMe : MonoBehaviour, IDropHandler, IPointerEnterHandler, IPointe
             GameObject.FindWithTag("Image2").GetComponent<UnityEngine.UI.Text>().text = imageName.ToString();
             if (imageName.Equals("MagicUsers"))
             {
-                GameObject.FindWithTag("Settings").GetComponent<PrefabSettings>().setSoldier2(1);
+                GameObject.FindWithTag("Settings").GetComponent<PrefabSettings>().setSoldier2(3);
             }
             if (imageName.Equals("Ranged"))
             {
@@ -111,11 +111,11 @@ public class DropMe : MonoBehaviour, IDropHandler, IPointerEnterHandler, IPointe
             }
             if (imageName.Equals("RockThrower"))
             {
-                GameObject.FindWithTag("Settings").GetComponent<PrefabSettings>().setSoldier2(3);
+                GameObject.FindWithTag("Settings").GetComponent<PrefabSettings>().setSoldier2(4);
             }
             if (imageName.Equals("Skeletons"))
             {
-                GameObject.FindWithTag("Settings").GetComponent<PrefabSettings>().setSoldier2(4);
+                GameObject.FindWithTag("Settings").GetComponent<PrefabSettings>().setSoldier2(1);
             }
         }
         if (Position3)
@@ -124,7 +124,7 @@ public class DropMe : MonoBehaviour, IDropHandler, IPointerEnterHandler, IPointe
             GameObject.FindWithTag("Image3").GetComponent<UnityEngine.UI.Text>().text = imageName.ToString();
             if (imageName.Equals("MagicUsers"))
             {
-                GameObject.FindWithTag("Settings").GetComponent<PrefabSettings>().setSoldier3(1);
+                GameObject.FindWithTag("Settings").GetComponent<PrefabSettings>().setSoldier3(3);
             }
             if (imageName.Equals("Ranged"))
             {
@@ -132,11 +132,11 @@ public class DropMe : MonoBehaviour, IDropHandler, IPointerEnterHandler, IPointe
             }
             if (imageName.Equals("RockThrower"))
             {
-                GameObject.FindWithTag("Settings").GetComponent<PrefabSettings>().setSoldier3(3);
+                GameObject.FindWithTag("Settings").GetComponent<PrefabSettings>().setSoldier3(4);
             }
             if (imageName.Equals("Skeletons"))
             {
-                GameObject.FindWithTag("Settings").GetComponent<PrefabSettings>().setSoldier3(4);
+                GameObject.FindWithTag("Settings").GetComponent<PrefabSettings>().setSoldier3(1);
             }
         }
         if (Position4)
@@ -145,7 +145,7 @@ public class DropMe : MonoBehaviour, IDropHandler, IPointerEnterHandler, IPointe
             GameObject.FindWithTag("Image4").GetComponent<UnityEngine.UI.Text>().text = imageName.ToString();
             if (imageName.Equals("MagicUsers"))
             {
-                GameObject.FindWithTag("Settings").GetComponent<PrefabSettings>().setSoldier4(1);
+                GameObject.FindWithTag("Settings").GetComponent<PrefabSettings>().setSoldier4(3);
             }
             if (imageName.Equals("Ranged"))
             {
@@ -153,11 +153,11 @@ public class DropMe : MonoBehaviour, IDropHandler, IPointerEnterHandler, IPointe
             }
             if (imageName.Equals("RockThrower"))
             {
-                GameObject.FindWithTag("Settings").GetComponent<PrefabSettings>().setSoldier4(3);
+                GameObject.FindWithTag("Settings").GetComponent<PrefabSettings>().setSoldier4(4);
             }
             if (imageName.Equals("Skeletons"))
             {
-                GameObject.FindWithTag("Settings").GetComponent<PrefabSettings>().setSoldier4(4);
+                GameObject.FindWithTag("Settings").GetComponent<PrefabSettings>().setSoldier4(1);
             }
         }
         if (Position5)
@@ -166,7 +166,7 @@ public class DropMe : MonoBehaviour, IDropHandler, IPointerEnterHandler, IPointe
             GameObject.FindWithTag("Image5").GetComponent<UnityEngine.UI.Text>().text = imageName.ToString();
             if (imageName.Equals("MagicUsers"))
             {
-                GameObject.FindWithTag("Settings").GetComponent<PrefabSettings>().setSoldier5(1);
+                GameObject.FindWithTag("Settings").GetComponent<PrefabSettings>().setSoldier5(3);
             }
             if (imageName.Equals("Ranged"))
             {
@@ -174,11 +174,11 @@ public class DropMe : MonoBehaviour, IDropHandler, IPointerEnterHandler, IPointe
             }
             if (imageName.Equals("RockThrower"))
             {
-                GameObject.FindWithTag("Settings").GetComponent<PrefabSettings>().setSoldier5(3);
+                GameObject.FindWithTag("Settings").GetComponent<PrefabSettings>().setSoldier5(4);
             }
             if (imageName.Equals("Skeletons"))
             {
-                GameObject.FindWithTag("Settings").GetComponent<PrefabSettings>().setSoldier5(4);
+                GameObject.FindWithTag("Settings").GetComponent<PrefabSettings>().setSoldier5(1);
             }
         }
         if (Position6)
@@ -187,7 +187,7 @@ public class DropMe : MonoBehaviour, IDropHandler, IPointerEnterHandler, IPointe
             GameObject.FindWithTag("Image6").GetComponent<UnityEngine.UI.Text>().text = imageName.ToString();
             if (imageName.Equals("MagicUsers"))
             {
-                GameObject.FindWithTag("Settings").GetComponent<PrefabSettings>().setSoldier6(1);
+                GameObject.FindWithTag("Settings").GetComponent<PrefabSettings>().setSoldier6(3);
             }
             if (imageName.Equals("Ranged"))
             {
@@ -195,11 +195,11 @@ public class DropMe : MonoBehaviour, IDropHandler, IPointerEnterHandler, IPointe
             }
             if (imageName.Equals("RockThrower"))
             {
-                GameObject.FindWithTag("Settings").GetComponent<PrefabSettings>().setSoldier6(3);
+                GameObject.FindWithTag("Settings").GetComponent<PrefabSettings>().setSoldier6(4);
             }
             if (imageName.Equals("Skeletons"))
             {
-                GameObject.FindWithTag("Settings").GetComponent<PrefabSettings>().setSoldier6(4);
+                GameObject.FindWithTag("Settings").GetComponent<PrefabSettings>().setSoldier6(1);
             }
         }
         return srcImage.sprite;
