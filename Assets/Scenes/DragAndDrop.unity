@@ -1291,12 +1291,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6dce2c2c5416e254399cb69ca870b84d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Soldier1: 0
-  Soldier2: 0
-  Soldier3: 0
-  Soldier4: 0
-  Soldier5: 0
-  Soldier6: 0
+  Soldier1: 1
+  Soldier2: 1
+  Soldier3: 1
+  Soldier4: 1
+  Soldier5: 1
+  Soldier6: 1
 --- !u!4 &831927323
 Transform:
   m_ObjectHideFlags: 0

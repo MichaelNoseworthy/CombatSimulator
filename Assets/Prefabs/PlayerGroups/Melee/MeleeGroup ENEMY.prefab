@@ -11289,6 +11289,8 @@ MonoBehaviour:
   BulletPrefab: {fileID: 0}
   DeathAnimation: {fileID: 1737421546322632, guid: 2c51a335c0e395844b9f4cde1e81f2b6,
     type: 2}
+  AlliedTroop: 0
+  EnemyTroop: 1
   entityCollider: {fileID: 0}
   entityName: 
   Melee: 1
@@ -11298,7 +11300,7 @@ MonoBehaviour:
   distanceFromTargetToAttack: 1.5
   damageToDeal: 10
   healthBar: {fileID: 224238695731974426}
-  currentHealth: 100
+  currentHealth: 130
   rockTimer: 0
   waitingForRockTimer: 3
   isDead: 0
@@ -11324,6 +11326,8 @@ MonoBehaviour:
   BulletPrefab: {fileID: 0}
   DeathAnimation: {fileID: 1737421546322632, guid: 2c51a335c0e395844b9f4cde1e81f2b6,
     type: 2}
+  AlliedTroop: 0
+  EnemyTroop: 1
   entityCollider: {fileID: 0}
   entityName: 
   Melee: 1
@@ -11333,7 +11337,7 @@ MonoBehaviour:
   distanceFromTargetToAttack: 1.5
   damageToDeal: 10
   healthBar: {fileID: 224400237140926182}
-  currentHealth: 100
+  currentHealth: 130
   rockTimer: 0
   waitingForRockTimer: 3
   isDead: 0
@@ -11402,6 +11406,8 @@ MonoBehaviour:
   BulletPrefab: {fileID: 0}
   DeathAnimation: {fileID: 1737421546322632, guid: 2c51a335c0e395844b9f4cde1e81f2b6,
     type: 2}
+  AlliedTroop: 0
+  EnemyTroop: 1
   entityCollider: {fileID: 0}
   entityName: 
   Melee: 1
@@ -11411,7 +11417,7 @@ MonoBehaviour:
   distanceFromTargetToAttack: 1.5
   damageToDeal: 10
   healthBar: {fileID: 224168495025577710}
-  currentHealth: 100
+  currentHealth: 130
   rockTimer: 0
   waitingForRockTimer: 3
   isDead: 0
@@ -11845,6 +11851,8 @@ MonoBehaviour:
   BulletPrefab: {fileID: 0}
   DeathAnimation: {fileID: 1737421546322632, guid: 2c51a335c0e395844b9f4cde1e81f2b6,
     type: 2}
+  AlliedTroop: 0
+  EnemyTroop: 1
   entityCollider: {fileID: 0}
   entityName: 
   Melee: 1
@@ -11854,7 +11862,7 @@ MonoBehaviour:
   distanceFromTargetToAttack: 1.5
   damageToDeal: 10
   healthBar: {fileID: 224741755420689138}
-  currentHealth: 100
+  currentHealth: 130
   rockTimer: 0
   waitingForRockTimer: 3
   isDead: 0
@@ -11923,6 +11931,8 @@ MonoBehaviour:
   BulletPrefab: {fileID: 0}
   DeathAnimation: {fileID: 1737421546322632, guid: 2c51a335c0e395844b9f4cde1e81f2b6,
     type: 2}
+  AlliedTroop: 0
+  EnemyTroop: 1
   entityCollider: {fileID: 0}
   entityName: 
   Melee: 1
@@ -11932,7 +11942,7 @@ MonoBehaviour:
   distanceFromTargetToAttack: 1.5
   damageToDeal: 10
   healthBar: {fileID: 224070736457828968}
-  currentHealth: 100
+  currentHealth: 130
   rockTimer: 0
   waitingForRockTimer: 3
   isDead: 0

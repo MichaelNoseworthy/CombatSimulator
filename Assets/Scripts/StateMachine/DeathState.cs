@@ -16,7 +16,12 @@ public class DeathState : State {
     public override void OnStateEnter()
     {
         character.isDead = true;//Tells the other AI's that this player is dead
+        
+        if (character.AlliedTroop)
+        GameObject.FindWithTag("GameController").GetComponent<GameManager>().setAlliedTroops(-1);
 
+        if (character.EnemyTroop)
+        GameObject.FindWithTag("GameController").GetComponent<GameManager>().setEnemyTroops(-1);
         Debug.Log(character.entityName + " - Dead!");
         character.onDeath();//Creates a death animation
         if (character.Melee == true)

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 
 public class GameManager : MonoBehaviour {
@@ -44,9 +45,36 @@ public class GameManager : MonoBehaviour {
 
     int troopNumber;
 
+
+    public int AlliedTroops = -1;
+    public int EnemyTroops = -1;
+
+    Text AlliedTroopsText;
+    Text EnemyTroopsText;
+
+    public void setAlliedTroops(int number)
+    {
+        AlliedTroops += number;
+    }
+
+    public int getAlliedTroops()
+    {
+        return AlliedTroops;
+    }
+
+    public void setEnemyTroops(int number)
+    {
+        EnemyTroops += number;
+    }
+
+    public int getEnemyTroops()
+    {
+        return EnemyTroops;
+    }
+
     private GameObject SpawnEnemiesGroupPrefab()
     {
-        int number = Random.Range(1, 4);
+        int number = 1 + Random.Range(1, 4);
 
         if (number == 1)
             return EnemiesMeleeGroupPrefab;
@@ -83,7 +111,9 @@ public class GameManager : MonoBehaviour {
         PauseGame = false;
         Time.timeScale = 0;
 
-        
+
+        AlliedTroopsText = GameObject.Find("Main Camera/Canvas/AlliedText/AlliedTroopsText").GetComponent<Text>();
+        EnemyTroopsText = GameObject.Find("Main Camera/Canvas/EnemyText/EnemyTroopsText").GetComponent<Text>();
 
         AlliesSoldierSpawn1 = GameObject.Find("AlliesSoldier1");
         AlliesSoldierSpawn2 = GameObject.Find("AlliesSoldier2");
@@ -123,6 +153,7 @@ public class GameManager : MonoBehaviour {
         Instantiate(SpawnAlliesGroupPrefab(soldier4), AlliesSoldierSpawn4.transform.position, AlliesSoldierSpawn4.transform.rotation);
         Instantiate(SpawnAlliesGroupPrefab(soldier5), AlliesSoldierSpawn5.transform.position, AlliesSoldierSpawn5.transform.rotation);
         Instantiate(SpawnAlliesGroupPrefab(soldier6), AlliesSoldierSpawn6.transform.position, AlliesSoldierSpawn6.transform.rotation);
+        GameObject.Find("Winner").GetComponent<Text>().enabled = false;
     }
 	
 	// Update is called once per frame
@@ -133,6 +164,23 @@ public class GameManager : MonoBehaviour {
             if (Time.timeScale == 0)
                 Time.timeScale = 1;
             else Time.timeScale = 0;
+        }
+
+
+        AlliedTroopsText.text = getAlliedTroops().ToString();
+        EnemyTroopsText.text = getEnemyTroops().ToString();
+
+        if (getEnemyTroops() == 0)
+        {
+            GameObject.Find("Winner").GetComponent<Text>().enabled = true;
+            GameObject.Find("Winner").GetComponent<Text>().text = "You Won!";
+        }
+
+
+        if (getAlliedTroops() == 0)
+        {
+            GameObject.Find("Winner").GetComponent<Text>().enabled = true;
+            GameObject.Find("Winner").GetComponent<Text>().text = "Enemy Won!";
         }
     }
 }

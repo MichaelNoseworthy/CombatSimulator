@@ -2413,6 +2413,8 @@ MonoBehaviour:
     type: 2}
   DeathAnimation: {fileID: 1205046702269300, guid: aff91f0333bd1494d80bd5a9ac532c9b,
     type: 2}
+  AlliedTroop: 0
+  EnemyTroop: 1
   entityCollider: {fileID: 0}
   entityName: 
   Melee: 0
@@ -2420,7 +2422,7 @@ MonoBehaviour:
   RockThrower: 1
   MagicUser: 0
   distanceFromTargetToAttack: 10
-  damageToDeal: 10
+  damageToDeal: 15
   healthBar: {fileID: 224984409726601576}
   currentHealth: 100
   rockTimer: 0
@@ -2492,6 +2494,8 @@ MonoBehaviour:
     type: 2}
   DeathAnimation: {fileID: 1205046702269300, guid: aff91f0333bd1494d80bd5a9ac532c9b,
     type: 2}
+  AlliedTroop: 0
+  EnemyTroop: 1
   entityCollider: {fileID: 0}
   entityName: 
   Melee: 0
@@ -2499,7 +2503,7 @@ MonoBehaviour:
   RockThrower: 1
   MagicUser: 0
   distanceFromTargetToAttack: 10
-  damageToDeal: 10
+  damageToDeal: 15
   healthBar: {fileID: 224661796254537546}
   currentHealth: 100
   rockTimer: 0

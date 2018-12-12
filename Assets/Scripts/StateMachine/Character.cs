@@ -22,6 +22,13 @@ public class Character : MonoBehaviour
     //private GameObject Bullet;
     public GameObject DeathAnimation;
 
+    //
+    private bool DoOncePlayerInitiation = false;
+    [SerializeField]
+    public bool AlliedTroop;
+    [SerializeField]
+    public bool EnemyTroop;
+
     public Collider entityCollider;
     //public float playerID = 0;
     //public float EnemyID = 0;
@@ -109,6 +116,8 @@ public class Character : MonoBehaviour
         if (RockThrower == true)
         {
            GetComponent<CannonBall>().fireCannonBall(nearestEntity.transform);
+
+            EnemyScript.TakeDamage(damageToDeal);
         }
 
         if (MagicUser == true)
@@ -129,7 +138,26 @@ public class Character : MonoBehaviour
         //setAnimation("1handedWalk");
         //m_Animator.Play("2handedWalk");
         isDead = false;
+
+        
+        if (AlliedTroop)
+        if (DoOncePlayerInitiation == false)
+        {
+                GameObject.FindWithTag("GameController").GetComponent<GameManager>().setAlliedTroops(1);
+                DoOncePlayerInitiation = true;
+        }
+
+        if (EnemyTroop)
+            if (DoOncePlayerInitiation == false)
+            {
+                GameObject.FindWithTag("GameController").GetComponent<GameManager>().setEnemyTroops(1);
+                DoOncePlayerInitiation = true;
+            }
+            
         entityCollider = GetComponent<CapsuleCollider>();
+
+
+
         SetState(new IdleState(this));//default state
     }
 

@@ -2355,8 +2355,10 @@ MonoBehaviour:
   bulletSpawnPoint: {fileID: 1204640782432280}
   BulletPrefab: {fileID: 1389213776102310, guid: 396505930412a4f4ba86fc5901270cc8,
     type: 2}
-  DeathAnimation: {fileID: 1205046702269300, guid: aff91f0333bd1494d80bd5a9ac532c9b,
+  DeathAnimation: {fileID: 1512560419428640, guid: 9961df17b5570a34ea2572bfa2303138,
     type: 2}
+  AlliedTroop: 1
+  EnemyTroop: 0
   entityCollider: {fileID: 0}
   entityName: 
   Melee: 0
@@ -2364,7 +2366,7 @@ MonoBehaviour:
   RockThrower: 1
   MagicUser: 0
   distanceFromTargetToAttack: 10
-  damageToDeal: 10
+  damageToDeal: 15
   healthBar: {fileID: 224554161231552346}
   currentHealth: 100
   rockTimer: 0
@@ -2434,8 +2436,10 @@ MonoBehaviour:
   bulletSpawnPoint: {fileID: 1006584516758080}
   BulletPrefab: {fileID: 1389213776102310, guid: 396505930412a4f4ba86fc5901270cc8,
     type: 2}
-  DeathAnimation: {fileID: 1205046702269300, guid: aff91f0333bd1494d80bd5a9ac532c9b,
+  DeathAnimation: {fileID: 1512560419428640, guid: 9961df17b5570a34ea2572bfa2303138,
     type: 2}
+  AlliedTroop: 1
+  EnemyTroop: 0
   entityCollider: {fileID: 0}
   entityName: 
   Melee: 0
@@ -2443,7 +2447,7 @@ MonoBehaviour:
   RockThrower: 1
   MagicUser: 0
   distanceFromTargetToAttack: 10
-  damageToDeal: 10
+  damageToDeal: 15
   healthBar: {fileID: 224892206452527470}
   currentHealth: 100
   rockTimer: 0

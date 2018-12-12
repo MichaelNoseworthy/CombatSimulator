@@ -9083,6 +9083,8 @@ MonoBehaviour:
     type: 2}
   DeathAnimation: {fileID: 1205046702269300, guid: aff91f0333bd1494d80bd5a9ac532c9b,
     type: 2}
+  AlliedTroop: 0
+  EnemyTroop: 1
   entityCollider: {fileID: 0}
   entityName: 
   Melee: 0
@@ -9167,6 +9169,8 @@ MonoBehaviour:
     type: 2}
   DeathAnimation: {fileID: 1205046702269300, guid: aff91f0333bd1494d80bd5a9ac532c9b,
     type: 2}
+  AlliedTroop: 0
+  EnemyTroop: 1
   entityCollider: {fileID: 0}
   entityName: 
   Melee: 0
@@ -9224,6 +9228,8 @@ MonoBehaviour:
     type: 2}
   DeathAnimation: {fileID: 1205046702269300, guid: aff91f0333bd1494d80bd5a9ac532c9b,
     type: 2}
+  AlliedTroop: 0
+  EnemyTroop: 1
   entityCollider: {fileID: 0}
   entityName: 
   Melee: 0
@@ -9335,6 +9341,8 @@ MonoBehaviour:
     type: 2}
   DeathAnimation: {fileID: 1205046702269300, guid: aff91f0333bd1494d80bd5a9ac532c9b,
     type: 2}
+  AlliedTroop: 0
+  EnemyTroop: 1
   entityCollider: {fileID: 0}
   entityName: 
   Melee: 0
@@ -9452,6 +9460,8 @@ MonoBehaviour:
     type: 2}
   DeathAnimation: {fileID: 1205046702269300, guid: aff91f0333bd1494d80bd5a9ac532c9b,
     type: 2}
+  AlliedTroop: 0
+  EnemyTroop: 1
   entityCollider: {fileID: 0}
   entityName: 
   Melee: 0
